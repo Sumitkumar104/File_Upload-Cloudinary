@@ -6,7 +6,7 @@ const {imageupload,videoupload,imagereducerupload,localfileupload}=require("../c
 route.post("/imageupload",imageupload);
 route.post("/videouplaod",videoupload);
 route.post("/imagereducer",imagereducerupload);
-route.post("/localfileupload",localfileupload);
+route.post('/localfileupload',localfileupload);
 
 
 module.exports=route;

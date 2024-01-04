@@ -5,12 +5,12 @@ require('dotenv').config();
 
 const URL=process.env.mongourl;
 
-const mongoconnect = () => {
+const mongoconnect = async() => {
     
-    mongoose.connect(URL)
+    await mongoose.connect(URL)
         .then(
             () => {
-                console.log("mongoose is succesfully  connected");
+                console.log("mongoose is succesfully connected");
             }
 
         )

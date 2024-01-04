@@ -1,21 +1,18 @@
-const cloudinary = require("cloudinary").v2;
+const cloudinary = require("cloudinary").v2; // Import v2 version of the library
 require("dotenv").config();
 
-
-
-const cloudinaryconnect = () => {
-try{
-    cloudinary.connect(
-        {
+const cloudinaryconnect = async() => {
+    try {
+       await cloudinary.config({
             cloud_name: process.env.cloudname,
             api_key: process.env.apikey,
             api_secret: process.env.apisecret
-        }
-    )
-}
-catch(err){
-    console.log("there is something error to connect the cloudinary");
-    console.error(err);
-}
-}
-module.exports=cloudinaryconnect;
+        });
+        console.log("Cloudinary is successfully connected");
+    } catch (err) {
+        console.log("There is an error connecting to Cloudinary");
+        console.error(err);
+    }
+};
+
+module.exports = cloudinaryconnect;

@@ -9,8 +9,11 @@ app.use(express.json());
 app.use(fileupload());
 
 
-const uploadroute = require("./routes/fileuplaodroute");
-app.get("/app/v1/upload", uploadroute);
+
+
+
+mongoconnect();
+cloudinaryconnect();
 
 
 const port = process.env.port||4000; // Correct the variable name to uppercase PORT
@@ -18,10 +21,9 @@ app.listen(port, () => {
     console.log(`Your app is successfully rendered at port = ${port}`);
 });
 
-mongoconnect();
-// cloudinaryconnect();
-
 
 app.get("/", (req, res) => {
     res.send('<h1>cdffvfff v vf vffssv rg vrdv</h1>');
 });
+const uploadroute = require("./routes/fileuplaodroute");
+app.use("/api/v1/upload",uploadroute); 
