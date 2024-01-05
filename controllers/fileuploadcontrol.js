@@ -31,6 +31,7 @@ function checkfiletype(supportedtypes, imagedatatype) {
 
 async function fileuploadtocloudinary(file, location) {
     const options = { location }
+    options.resource_type="auto";
     return await cloudinary.uploader.upload(file.tempFilePath, options);
 }
 
@@ -86,7 +87,7 @@ exports.imageupload = async (req, res) => {
 
 }
 exports.videoupload = () => {
-
+    // same as image uplaod 
 }
 exports.imagereducerupload = () => {
 

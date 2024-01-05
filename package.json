@@ -10,6 +10,8 @@
     "express-fileupload": "^1.4.3",
     "mongoose": "^8.0.3",
     "node": "^21.2.0",
-    "nodemon": "^3.0.2"
+    "nodemailer": "^6.9.8",
+    "nodemon": "^3.0.2",
+    "redis-server": "^1.2.2"
   }
 }
