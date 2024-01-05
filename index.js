@@ -6,7 +6,10 @@ const mongoconnect =require("./config/mongodb");
 const cloudinaryconnect=require("./config/cloudinary");
 
 app.use(express.json());
-app.use(fileupload());
+app.use(fileupload({
+    useTempFiles : true,
+    tempFileDir : '/tmp/'
+}));
 
 
 
@@ -23,7 +26,7 @@ app.listen(port, () => {
 
 
 app.get("/", (req, res) => {
-    res.send('<h1>cdffvfff v vf vffssv rg vrdv</h1>');
+    res.send('<h1> Welcome  back guys </h1>');
 });
 const uploadroute = require("./routes/fileuplaodroute");
 app.use("/api/v1/upload",uploadroute); 
