@@ -11,12 +11,14 @@ app.use(fileupload({
     tempFileDir : '/tmp/'
 }));
 
-
-
-
-
 mongoconnect();
 cloudinaryconnect();
+
+const uploadroute = require("./routes/fileuplaodroute");
+const fileHandleRoute=require("./routes/fileHandleRoute");
+
+app.use("/api/v1/upload",uploadroute); 
+app.use("/api/v1/file",fileHandleRoute);
 
 
 const port = process.env.port||4000; // Correct the variable name to uppercase PORT
@@ -28,5 +30,3 @@ app.listen(port, () => {
 app.get("/", (req, res) => {
     res.send('<h1> Welcome  back guys </h1>');
 });
-const uploadroute = require("./routes/fileuplaodroute");
-app.use("/api/v1/upload",uploadroute); 
